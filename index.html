@@ -1,6 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>MP Eagle Wood Craft</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .intro {
+      text-align: center;
+      animation: fadeOut 2s ease 3s forwards;
+    }
+
+    .logo {
+      width: 250px;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: zoomIn 2s ease forwards;
+    }
+
+    h1 {
+      color: gold;
+      font-family: serif;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 2s ease 1.5s forwards;
+    }
+
+    @keyframes zoomIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    .main-content {
+      position: absolute;
+      color: white;
+      font-size: 30px;
+      opacity: 0;
+      animation: showContent 2s ease 4s forwards;
+    }
+
+    @keyframes showContent {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="intro">
+    <img src="logo.png" class="logo" alt="Logo">
+    <h1>MP Eagle Wood Craft</h1>
+  </div>
+
+  <div class="main-content">
+    Welcome to MP Eagle Wood Craft 🔥
+  </div>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MP Eagle Logo Intro</title>
