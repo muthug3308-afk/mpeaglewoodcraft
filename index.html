@@ -3,86 +3,265 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MP Eagle Wood Craft</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<title>MP Eagle Wood Craft | Official Store</title>
+
+<meta name="description" content="MP Eagle Wood Craft - Premium handmade wooden products, eagle statues, furniture and home decor. Order custom wood craft online.">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-#loader {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, #000 60%, #111);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Cinzel', serif;
 }
 
-.eagle {
-  width: 170px;
-  filter: drop-shadow(0 0 25px gold);
-  animation: fly 3s ease-in-out infinite;
+body{
+  background:#0a0a0a;
+  color:white;
 }
 
-#loader h1 {
-  color: gold;
-  margin-top: 20px;
-  letter-spacing: 4px;
+/* ===== HEADER ===== */
+header{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 25px;
+  background:rgba(0,0,0,0.7);
+  border-bottom:1px solid gold;
+  position:sticky;
+  top:0;
 }
 
-@keyframes fly {
-  0% { transform: translateY(30px) scale(0.9); opacity: 0; }
-  50% { transform: translateY(0px) scale(1.1); opacity: 1; }
-  100% { transform: translateY(-20px) scale(1); }
+header h2{
+  color:gold;
 }
 
+nav a{
+  color:white;
+  margin-left:15px;
+  text-decoration:none;
+}
+
+nav a:hover{color:gold}
+
+/* ===== HERO ===== */
+.hero{
+  height:90vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80') center/cover;
+  position:relative;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.75);
+}
+
+.hero-content{
+  position:relative;
+}
+
+.hero h1{
+  color:gold;
+  font-size:48px;
+}
+
+/* ===== PRODUCTS ===== */
+section{
+  padding:60px 20px;
+  text-align:center;
+}
+
+.title{
+  color:gold;
+  font-size:26px;
+  margin-bottom:25px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#111;
+  border:1px solid gold;
+  border-radius:10px;
+  padding:15px;
+}
+
+.card img{
+  width:100%;
+  border-radius:10px;
+}
+
+.btn{
+  margin-top:10px;
+  padding:10px;
+  background:gold;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* ===== ORDER FORM ===== */
+.form{
+  background:#111;
+  padding:20px;
+  border-top:1px solid gold;
+}
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border:none;
+  outline:none;
+}
+
+textarea{
+  height:80px;
+}
+
+.form button{
+  width:100%;
+  padding:12px;
+  background:gold;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* ===== CART BOX ===== */
+.cart{
+  position:fixed;
+  right:15px;
+  bottom:15px;
+  width:240px;
+  background:#111;
+  border:1px solid gold;
+  padding:10px;
+}
+
+.cart h3{color:gold;}
+
+footer{
+  text-align:center;
+  padding:20px;
+  border-top:1px solid gold;
+  color:gray;
+}
 </style>
 </head>
 
 <body>
-  
 
-<!-- 🔥 LOADING SCREEN -->
-<div id="loader">
-  <img src="logo.png" class="eagle" alt="Logo">
-  <h1>MP EAGLE WOOD CRAFT</h1>
-</div>
-
-<!-- 🔥 LOGO INTRO -->
-<div id="loader">
-  <img src="logo.png" alt="Logo">
-  <h1>MP EAGLE WOOD CRAFT</h1>
-</div>
-
-<!-- 🌐 WEBSITE CONTENT -->
 <header>
-  <h1>MP Eagle Wood Craft</h1>
-  <p>Premium Wooden Creations</p>
-  <a href="#" class="btn">Explore Products</a>
+  <h2>MP Eagle Wood Craft</h2>
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#order">Order</a>
+  </nav>
 </header>
 
-<section>
-  <h2>Our Craft</h2>
-  <p>We create high-quality wooden products with precision and passion.</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Luxury Wood Craft Store</h1>
+    <p>Premium Handmade Eagle Inspired Designs</p>
+  </div>
 </section>
 
-<!-- ✅ SCRIPT -->
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="title">🔥 Products</div>
+
+  <div class="products">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6">
+      <h3>Wood Eagle Statue</h3>
+      <p>₹2999</p>
+      <button class="btn" onclick="add('Wood Eagle Statue')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353">
+      <h3>Luxury Furniture</h3>
+      <p>₹9999</p>
+      <button class="btn" onclick="add('Luxury Furniture')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+      <h3>Home Decor</h3>
+      <p>₹1499</p>
+      <button class="btn" onclick="add('Home Decor')">Add</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section id="order" class="form">
+  <div class="title">📦 Place Order</div>
+
+  <input id="name" placeholder="Your Name">
+  <input id="phone" placeholder="Phone Number">
+  <textarea id="address" placeholder="Address"></textarea>
+
+  <button onclick="sendOrder()">Send Order via WhatsApp</button>
+</section>
+
+<!-- CART -->
+<div class="cart">
+  <h3>🛒 Cart</h3>
+  <div id="cartBox">Empty</div>
+</div>
+
+<footer>
+  © 2026 MP Eagle Wood Craft | Official Store
+</footer>
+
 <script>
-window.onload = function() {
-  setTimeout(function() {
-    document.getElementById("loader").style.display = "none";
-  }, 3000);
-};
-</script>
-  <script>
-window.onload = function () {
-  setTimeout(() => {
-    document.getElementById("loader").style.display = "none";
-  }, 3000);
-};
+
+let cart = [];
+
+function add(item){
+  cart.push(item);
+  document.getElementById("cartBox").innerHTML = cart.join("<br>");
+}
+
+// FINAL ORDER SYSTEM
+function sendOrder(){
+
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let address = document.getElementById("address").value;
+
+  let msg =
+`🔥 NEW ORDER - MP Eagle Wood Craft
+------------------------
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+Products:
+${cart.join("\n")}`;
+
+  let whatsapp = "91XXXXXXXXXX";
+
+  window.open("https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(msg), "_blank");
+}
+
 </script>
 
 </body>
