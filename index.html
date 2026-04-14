@@ -9,85 +9,56 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Cinzel', serif;
-}
 
-/* 🔥 LOADER STYLE */
 #loader {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #000;
+  background: radial-gradient(circle, #000 60%, #111);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 9999;
+  overflow: hidden;
 }
 
-#loader img {
-  width: 160px;
-  animation: zoom 2s ease-in-out;
-  filter: drop-shadow(0 0 20px gold);
+/* 🦅 EAGLE ANIMATION */
+.eagle {
+  width: 170px;
+  animation: fly 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 25px gold);
 }
 
+/* ✨ TEXT */
 #loader h1 {
   color: gold;
-  margin-top: 15px;
-  letter-spacing: 3px;
+  margin-top: 20px;
+  letter-spacing: 4px;
   animation: fadeIn 2s ease-in-out;
 }
 
-/* Animations */
-@keyframes zoom {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+/* 🔥 Flying effect */
+@keyframes fly {
+  0% {
+    transform: translateY(40px) scale(0.8) rotate(-5deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0px) scale(1.1) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20px) scale(1) rotate(0deg);
+  }
 }
 
+/* Fade text */
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* 🌐 MAIN WEBSITE */
-body {
-  background: #111;
-  color: #fff;
-}
-
-header {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-header h1 {
-  font-size: 40px;
-  color: gold;
-}
-
-header p {
-  margin-top: 10px;
-  color: #ccc;
-}
-
-section {
-  padding: 50px;
-  text-align: center;
-}
-
-.btn {
-  margin-top: 20px;
-  padding: 10px 25px;
-  background: gold;
-  color: #000;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
 
 </style>
 </head>
@@ -117,7 +88,7 @@ section {
 window.onload = function() {
   setTimeout(function() {
     document.getElementById("loader").style.display = "none";
-  }, 2500);
+  }, 3000);
 };
 </script>
 
