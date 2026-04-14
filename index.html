@@ -9,61 +9,47 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-
 #loader {
   position: fixed;
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, #000 60%, #111);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   z-index: 9999;
-  overflow: hidden;
 }
 
-/* 🦅 EAGLE ANIMATION */
 .eagle {
   width: 170px;
-  animation: fly 3s ease-in-out infinite;
   filter: drop-shadow(0 0 25px gold);
+  animation: fly 3s ease-in-out infinite;
 }
 
-/* ✨ TEXT */
 #loader h1 {
   color: gold;
   margin-top: 20px;
   letter-spacing: 4px;
-  animation: fadeIn 2s ease-in-out;
 }
 
-/* 🔥 Flying effect */
 @keyframes fly {
-  0% {
-    transform: translateY(40px) scale(0.8) rotate(-5deg);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(0px) scale(1.1) rotate(5deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-20px) scale(1) rotate(0deg);
-  }
+  0% { transform: translateY(30px) scale(0.9); opacity: 0; }
+  50% { transform: translateY(0px) scale(1.1); opacity: 1; }
+  100% { transform: translateY(-20px) scale(1); }
 }
-
-/* Fade text */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 
 </style>
 </head>
 
 <body>
+  
+
+<!-- 🔥 LOADING SCREEN -->
+<div id="loader">
+  <img src="logo.png" class="eagle" alt="Logo">
+  <h1>MP EAGLE WOOD CRAFT</h1>
+</div>
 
 <!-- 🔥 LOGO INTRO -->
 <div id="loader">
@@ -87,6 +73,13 @@
 <script>
 window.onload = function() {
   setTimeout(function() {
+    document.getElementById("loader").style.display = "none";
+  }, 3000);
+};
+</script>
+  <script>
+window.onload = function () {
+  setTimeout(() => {
     document.getElementById("loader").style.display = "none";
   }, 3000);
 };
