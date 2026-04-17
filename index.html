@@ -1,26 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>MP Eagle Live Store</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MP Eagle Wood Craft</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:white;}
-header{padding:15px;background:black;color:gold;}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;padding:20px;}
-.card{background:#111;border:1px solid gold;padding:10px;}
-button{background:gold;border:none;padding:10px;width:100%;}
-a{color:lightblue;display:block;margin-top:10px;}
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  color: #facc15;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background: linear-gradient(to right, #020617, #1e293b);
+}
+
+.hero h2 {
+  font-size: 3rem;
+  animation: fadeIn 2s ease;
+}
+
+.hero p {
+  margin: 20px 0;
+  color: #94a3b8;
+}
+
+.btn {
+  padding: 12px 25px;
+  background: #facc15;
+  color: black;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.products {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: black;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);} 
+  to {opacity:1; transform:translateY(0);} 
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <h2>🦅 MP Eagle Wood Craft LIVE</h2>
+  <h1>MP Eagle Wood Craft</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<div id="products" class="products"></div>
+<section class="hero">
+  <h2>Premium Handcrafted Wooden Products</h2>
+  <p>Modern | Strong | Stylish</p>
+  <a href="https://instagram.com" class="btn">Order on Instagram</a>
+</section>
 
-<script src="app.js"></script>
+<section id="products" class="products">
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300" alt="product">
+    <h3>Laptop Stand</h3>
+    <p>₹999</p>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300" alt="product">
+    <h3>Key Holder</h3>
+    <p>₹499</p>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300" alt="product">
+    <h3>Wooden Decor</h3>
+    <p>₹799</p>
+  </div>
+
+</section>
+
+<footer id="contact">
+  <p>Contact via Instagram DM</p>
+</footer>
+
+<script>
+// Future upgrade: dynamic products
+</script>
 
 </body>
 </html>
