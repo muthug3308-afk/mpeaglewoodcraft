@@ -1,6 +1,4 @@
-
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -665,4 +663,1691 @@ section{padding:6rem 3rem;}
 .contact-info .section-tag{color:var(--gold);}
 .contact-info .section-line{margin:1rem 0 0;}
 .contact-desc{color:rgba(253,246,227,0.75);line-height:1.8;margin:1.5rem 0 2rem;}
-.contact-item
+.contact-item{
+  display:flex;align-items:flex-start;gap:1rem;
+  margin-bottom:1.5rem;
+}
+.contact-item-icon{
+  font-size:1.5rem;
+  width:42px;height:42px;
+  background:rgba(201,168,76,0.15);
+  border:1px solid rgba(201,168,76,0.3);
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.contact-item-title{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.7rem;letter-spacing:2px;
+  color:var(--gold);text-transform:uppercase;
+  margin-bottom:0.2rem;
+}
+.contact-item-text{color:rgba(253,246,227,0.75);font-size:0.95rem;line-height:1.5;}
+.contact-form{
+  background:rgba(253,246,227,0.05);
+  border:1px solid rgba(201,168,76,0.2);
+  padding:2.5rem;border-radius:6px;
+  backdrop-filter:blur(10px);
+}
+.form-group{margin-bottom:1.5rem;}
+.form-group label{
+  display:block;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.7rem;letter-spacing:2px;
+  color:var(--gold);text-transform:uppercase;
+  margin-bottom:0.5rem;
+}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;
+  background:rgba(253,246,227,0.08);
+  border:1px solid rgba(201,168,76,0.25);
+  color:var(--white);
+  padding:0.85rem 1rem;
+  border-radius:3px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;
+  transition:border-color 0.3s ease;
+  outline:none;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+  border-color:var(--gold);
+  background:rgba(253,246,227,0.12);
+}
+.form-group select option{background:var(--wood-dark);color:var(--white);}
+.form-group textarea{resize:vertical;min-height:120px;}
+.form-success{
+  display:none;
+  background:rgba(46,125,50,0.2);
+  border:1px solid rgba(46,125,50,0.4);
+  color:var(--white);
+  padding:1rem;border-radius:3px;
+  text-align:center;margin-top:1rem;
+}
+.form-success.show{display:block;}
+
+/* ===== CART SIDEBAR ===== */
+#cart-sidebar{
+  position:fixed;top:0;right:-450px;bottom:0;
+  width:420px;max-width:95vw;
+  background:var(--white);
+  z-index:9999;
+  box-shadow:-10px 0 40px rgba(44,24,16,0.3);
+  transition:right 0.4s cubic-bezier(0.4,0,0.2,1);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+#cart-sidebar.open{right:0;}
+.cart-header{
+  background:var(--wood-dark);
+  padding:1.5rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;
+}
+.cart-header h3{
+  font-family:'Playfair Display',serif;
+  color:var(--white);font-size:1.2rem;
+}
+.cart-close{
+  background:none;border:none;
+  color:var(--gold);font-size:1.5rem;
+  cursor:pointer;padding:0.2rem;
+  transition:transform 0.2s;
+}
+.cart-close:hover{transform:rotate(90deg);}
+.cart-items{flex:1;overflow-y:auto;padding:1.5rem;}
+.cart-empty{
+  text-align:center;padding:3rem 1rem;
+  color:var(--text-light);
+}
+.cart-empty-icon{font-size:4rem;margin-bottom:1rem;}
+.cart-item{
+  display:flex;gap:1rem;align-items:start;
+  padding:1rem 0;border-bottom:1px solid var(--cream2);
+}
+.cart-item-img{
+  width:60px;height:60px;
+  background:linear-gradient(135deg,var(--wood-mid),var(--wood-dark));
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;flex-shrink:0;
+}
+.cart-item-info{flex:1;}
+.cart-item-name{
+  font-family:'Playfair Display',serif;
+  font-size:0.95rem;font-weight:700;
+  color:var(--wood-dark);margin-bottom:0.2rem;
+}
+.cart-item-price{color:var(--wood-warm);font-size:0.9rem;font-weight:600;}
+.cart-item-controls{display:flex;align-items:center;gap:0.5rem;margin-top:0.5rem;}
+.qty-btn{
+  background:var(--cream2);border:none;
+  width:24px;height:24px;border-radius:2px;
+  cursor:pointer;font-size:0.9rem;font-weight:700;
+  color:var(--wood-dark);
+  transition:background 0.2s;display:flex;align-items:center;justify-content:center;
+}
+.qty-btn:hover{background:var(--wood-pale);}
+.qty-num{font-size:0.9rem;font-weight:600;min-width:20px;text-align:center;}
+.cart-item-remove{
+  background:none;border:none;
+  color:var(--text-light);cursor:pointer;
+  font-size:1.1rem;padding:0.2rem;
+  transition:color 0.2s;
+}
+.cart-item-remove:hover{color:#E53935;}
+.cart-footer{
+  padding:1.5rem;border-top:2px solid var(--cream2);
+  flex-shrink:0;background:var(--white);
+}
+.cart-total{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:1.2rem;
+}
+.cart-total-label{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-mid);
+}
+.cart-total-price{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;font-weight:700;color:var(--wood-warm);
+}
+.checkout-btn{
+  width:100%;padding:1rem;
+  background:var(--wood-dark);
+  color:var(--white);
+  border:none;border-radius:3px;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.8rem;letter-spacing:2px;
+  text-transform:uppercase;cursor:pointer;
+  transition:all 0.3s;
+}
+.checkout-btn:hover{background:var(--wood-warm);}
+.cart-overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.5);
+  z-index:9998;
+  opacity:0;visibility:hidden;
+  transition:all 0.3s;
+}
+.cart-overlay.show{opacity:1;visibility:visible;}
+
+/* ===== ADMIN PANEL ===== */
+#admin-overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.7);
+  z-index:99995;
+  display:none;
+  align-items:center;justify-content:center;
+  backdrop-filter:blur(5px);
+}
+#admin-overlay.show{display:flex;}
+.admin-login-box{
+  background:var(--white);
+  width:400px;max-width:95vw;
+  border-radius:8px;padding:2.5rem;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+.admin-login-box h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;color:var(--wood-dark);
+  margin-bottom:0.3rem;text-align:center;
+}
+.admin-login-box p{
+  text-align:center;font-size:0.9rem;
+  color:var(--text-light);margin-bottom:2rem;
+}
+.admin-input{
+  width:100%;padding:0.85rem 1rem;
+  border:1px solid var(--wood-pale);
+  border-radius:3px;font-size:1rem;
+  font-family:'Cormorant Garamond',serif;
+  margin-bottom:1rem;outline:none;
+  transition:border-color 0.3s;
+}
+.admin-input:focus{border-color:var(--wood-warm);}
+.admin-login-btn{
+  width:100%;padding:0.9rem;
+  background:var(--wood-dark);color:var(--white);
+  border:none;border-radius:3px;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:background 0.3s;
+}
+.admin-login-btn:hover{background:var(--wood-warm);}
+.admin-login-err{
+  color:#E53935;font-size:0.85rem;
+  text-align:center;margin-top:0.5rem;display:none;
+}
+
+/* ===== ADMIN DASHBOARD ===== */
+#admin-panel{
+  position:fixed;inset:0;
+  background:#F5F5F5;
+  z-index:99994;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+}
+#admin-panel.show{display:flex;}
+.admin-topbar{
+  background:var(--wood-dark);
+  padding:0 2rem;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;
+}
+.admin-topbar-left{
+  display:flex;align-items:center;gap:1rem;
+}
+.admin-topbar h2{
+  font-family:'Playfair Display',serif;
+  color:var(--white);font-size:1.1rem;
+}
+.admin-topbar-right{display:flex;align-items:center;gap:1rem;}
+.admin-logout-btn{
+  background:rgba(255,255,255,0.1);
+  color:var(--white);border:1px solid rgba(255,255,255,0.2);
+  padding:0.4rem 1rem;border-radius:3px;cursor:pointer;
+  font-family:'Josefin Sans',sans-serif;font-size:0.7rem;
+  letter-spacing:1px;text-transform:uppercase;
+  transition:all 0.2s;
+}
+.admin-logout-btn:hover{background:rgba(255,255,255,0.2);}
+.admin-body{display:flex;flex:1;overflow:hidden;}
+.admin-sidebar{
+  width:220px;background:var(--wood-dark);
+  opacity:0.95;padding:1.5rem 0;
+  flex-shrink:0;overflow-y:auto;
+}
+.admin-nav-item{
+  display:flex;align-items:center;gap:0.8rem;
+  padding:0.85rem 1.5rem;
+  color:rgba(253,246,227,0.6);cursor:pointer;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;
+  transition:all 0.2s;border-left:3px solid transparent;
+}
+.admin-nav-item:hover,.admin-nav-item.active{
+  color:var(--gold);
+  background:rgba(201,168,76,0.1);
+  border-left-color:var(--gold);
+}
+.admin-nav-item-icon{font-size:1rem;}
+.admin-main{flex:1;overflow-y:auto;padding:2rem;}
+.admin-tab{display:none;}
+.admin-tab.active{display:block;}
+.admin-section-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;color:var(--wood-dark);
+  margin-bottom:1.5rem;font-weight:700;
+}
+.admin-stats-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:1rem;margin-bottom:2rem;
+}
+.admin-stat-card{
+  background:var(--white);border-radius:6px;
+  padding:1.5rem;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+.admin-stat-icon{font-size:1.8rem;margin-bottom:0.5rem;}
+.admin-stat-val{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;font-weight:700;color:var(--wood-dark);
+}
+.admin-stat-label{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.65rem;letter-spacing:2px;
+  color:var(--text-light);text-transform:uppercase;
+}
+.admin-products-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:1rem;
+}
+.admin-add-btn{
+  background:var(--wood-warm);color:var(--white);
+  border:none;padding:0.65rem 1.2rem;
+  border-radius:3px;cursor:pointer;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;
+  transition:background 0.2s;display:flex;align-items:center;gap:0.5rem;
+}
+.admin-add-btn:hover{background:var(--wood-mid);}
+.admin-table{
+  width:100%;background:var(--white);
+  border-radius:6px;overflow:hidden;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  border-collapse:collapse;
+}
+.admin-table th{
+  background:var(--wood-dark);color:var(--gold);
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;
+  padding:1rem 1.2rem;text-align:left;
+}
+.admin-table td{
+  padding:1rem 1.2rem;border-bottom:1px solid #F0F0F0;
+  font-size:0.9rem;color:var(--text-dark);
+  vertical-align:middle;
+}
+.admin-table tr:hover td{background:#FDF9F0;}
+.admin-action-btn{
+  background:none;border:1px solid;
+  padding:0.3rem 0.7rem;border-radius:2px;
+  cursor:pointer;font-size:0.7rem;
+  font-family:'Josefin Sans',sans-serif;letter-spacing:1px;
+  transition:all 0.2s;margin-right:0.4rem;
+}
+.btn-edit{color:var(--wood-warm);border-color:var(--wood-warm);}
+.btn-edit:hover{background:var(--wood-warm);color:var(--white);}
+.btn-delete{color:#E53935;border-color:#E53935;}
+.btn-delete:hover{background:#E53935;color:var(--white);}
+
+/* ===== MODAL ===== */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.6);
+  z-index:99990;display:none;align-items:center;justify-content:center;
+  backdrop-filter:blur(3px);
+}
+.modal-overlay.show{display:flex;}
+.modal-box{
+  background:var(--white);width:500px;max-width:95vw;
+  border-radius:8px;padding:2rem;
+  max-height:85vh;overflow-y:auto;
+}
+.modal-box h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;color:var(--wood-dark);
+  margin-bottom:1.5rem;
+}
+.modal-form-group{margin-bottom:1.2rem;}
+.modal-form-group label{
+  display:block;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--text-mid);margin-bottom:0.4rem;
+}
+.modal-input{
+  width:100%;padding:0.75rem 1rem;
+  border:1px solid var(--wood-pale);
+  border-radius:3px;font-size:0.95rem;
+  font-family:'Cormorant Garamond',serif;
+  outline:none;transition:border-color 0.2s;
+}
+.modal-input:focus{border-color:var(--wood-warm);}
+.modal-btns{display:flex;gap:0.8rem;justify-content:flex-end;margin-top:1.5rem;}
+.modal-save-btn{
+  background:var(--wood-warm);color:var(--white);
+  border:none;padding:0.7rem 1.5rem;border-radius:3px;cursor:pointer;
+  font-family:'Josefin Sans',sans-serif;font-size:0.75rem;
+  letter-spacing:1.5px;text-transform:uppercase;transition:background 0.2s;
+}
+.modal-save-btn:hover{background:var(--wood-mid);}
+.modal-cancel-btn{
+  background:var(--cream2);color:var(--text-mid);
+  border:none;padding:0.7rem 1.5rem;border-radius:3px;cursor:pointer;
+  font-family:'Josefin Sans',sans-serif;font-size:0.75rem;
+  letter-spacing:1.5px;text-transform:uppercase;transition:background 0.2s;
+}
+.modal-cancel-btn:hover{background:var(--wood-pale);}
+
+/* ===== TOAST ===== */
+#toast-container{
+  position:fixed;bottom:2rem;left:50%;
+  transform:translateX(-50%);z-index:99997;
+  display:flex;flex-direction:column;
+  align-items:center;gap:0.5rem;
+  pointer-events:none;
+}
+.toast{
+  background:var(--wood-dark);color:var(--white);
+  padding:0.85rem 2rem;border-radius:4px;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.8rem;letter-spacing:1.5px;
+  box-shadow:0 8px 25px rgba(44,24,16,0.4);
+  animation:toastIn 0.3s ease forwards;
+  border-left:4px solid var(--gold);
+}
+.toast.remove{animation:toastOut 0.3s ease forwards;}
+.toast.success{border-left-color:var(--green-badge);}
+.toast.error{border-left-color:#E53935;}
+@keyframes toastIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes toastOut{from{opacity:1;transform:translateY(0);}to{opacity:0;transform:translateY(20px);}}
+
+/* ===== FLOATING ADMIN BTN ===== */
+#admin-trigger{
+  position:fixed;bottom:2rem;right:2rem;
+  width:52px;height:52px;
+  background:var(--wood-dark);
+  border:2px solid var(--gold);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:9990;
+  font-size:1.3rem;
+  box-shadow:0 4px 20px rgba(44,24,16,0.4);
+  transition:all 0.3s ease;
+  color:var(--gold);
+}
+#admin-trigger:hover{
+  background:var(--gold);
+  color:var(--wood-dark);
+  transform:rotate(15deg) scale(1.1);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--eagle-brown);
+  color:var(--white);padding:4rem 3rem 2rem;
+}
+.footer-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:3rem;margin-bottom:3rem;
+}
+.footer-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;font-weight:900;
+  color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;
+}
+.footer-desc{
+  color:rgba(253,246,227,0.6);font-size:0.95rem;line-height:1.7;
+}
+.footer-col-title{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.7rem;letter-spacing:3px;
+  color:var(--gold);text-transform:uppercase;
+  margin-bottom:1.2rem;
+}
+.footer-links{list-style:none;}
+.footer-links li{margin-bottom:0.6rem;}
+.footer-links a{
+  color:rgba(253,246,227,0.6);text-decoration:none;
+  font-size:0.9rem;transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--gold-light);}
+.footer-socials{display:flex;gap:0.8rem;margin-top:1.5rem;}
+.social-btn{
+  width:38px;height:38px;
+  background:rgba(201,168,76,0.1);
+  border:1px solid rgba(201,168,76,0.25);
+  border-radius:4px;display:flex;align-items:center;justify-content:center;
+  font-size:1rem;cursor:pointer;transition:all 0.3s;text-decoration:none;
+}
+.social-btn:hover{background:var(--gold);transform:translateY(-3px);}
+.footer-bottom{
+  border-top:1px solid rgba(201,168,76,0.15);
+  padding-top:2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-copyright{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.7rem;letter-spacing:2px;
+  color:rgba(253,246,227,0.4);text-transform:uppercase;
+}
+
+/* ===== ANIMATIONS ===== */
+.reveal{
+  opacity:0;transform:translateY(40px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{
+  opacity:0;transform:translateX(-40px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+.reveal-right{
+  opacity:0;transform:translateX(40px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.reveal-right.visible{opacity:1;transform:translateX(0);}
+
+/* ===== MOBILE NAV ===== */
+@media(max-width:900px){
+  .nav-links{
+    position:fixed;top:0;right:-100%;bottom:0;width:280px;
+    background:var(--wood-dark);
+    flex-direction:column;align-items:flex-start;
+    padding:6rem 2rem 2rem;gap:1.5rem;
+    transition:right 0.4s ease;z-index:8999;
+  }
+  .nav-links.open{right:0;}
+  .hamburger{display:flex;}
+  .hero-stats{display:none;}
+  .about-grid,.contact-grid,.footer-grid{grid-template-columns:1fr;}
+  section{padding:4rem 1.5rem;}
+  #navbar{padding:0 1.5rem;}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1;}
+  .gallery-item:nth-child(4){grid-column:span 2;}
+  .admin-sidebar{width:60px;}
+  .admin-nav-item span:last-child{display:none;}
+  .admin-nav-item{padding:0.85rem 1.1rem;justify-content:center;}
+}
+@media(max-width:600px){
+  .products-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:1fr;}
+  .gallery-item:nth-child(1){grid-column:span 1;}
+  .gallery-item:nth-child(4){grid-column:span 1;}
+}
+
+/* ===== PARTICLE CANVAS ===== */
+#particles-canvas{
+  position:absolute;inset:0;
+  pointer-events:none;z-index:1;
+  opacity:0.4;
+}
+
+/* ===== SOUND TOGGLE ===== */
+#sound-toggle{
+  position:fixed;bottom:2rem;left:2rem;
+  width:44px;height:44px;
+  background:var(--wood-dark);
+  border:1px solid rgba(201,168,76,0.4);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:9990;
+  font-size:1.1rem;
+  transition:all 0.3s;
+  color:var(--gold);
+}
+#sound-toggle:hover{background:var(--wood-warm);}
+
+/* ===== MARQUEE ===== */
+.marquee-wrap{
+  background:var(--gold);
+  padding:0.75rem 0;overflow:hidden;
+}
+.marquee-track{
+  display:flex;gap:3rem;
+  animation:marquee 20s linear infinite;
+  white-space:nowrap;
+}
+.marquee-item{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:0.7rem;letter-spacing:3px;
+  color:var(--wood-dark);text-transform:uppercase;
+  display:flex;align-items:center;gap:0.7rem;flex-shrink:0;
+}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-eagle">🦅</div>
+  <div class="preloader-text">MP EAGLE WOOD CRAFT</div>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+</div>
+
+<!-- SOUND TOGGLE -->
+<button id="sound-toggle" title="Toggle Sound">🔊</button>
+
+<!-- ADMIN TRIGGER -->
+<button id="admin-trigger" title="Admin Panel">⚙️</button>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <span class="nav-logo-emoji">🦅</span>
+    <div>
+      <div class="nav-logo-text">MP Eagle</div>
+      <div class="nav-logo-sub">Wood Craft</div>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about" onclick="playClick()">About</a></li>
+    <li><a href="#products" onclick="playClick()">Products</a></li>
+    <li><a href="#gallery" onclick="playClick()">Gallery</a></li>
+    <li><a href="#testimonials" onclick="playClick()">Reviews</a></li>
+    <li><a href="#contact" onclick="playClick()">Contact</a></li>
+    <li><a href="#" class="nav-cart-btn" onclick="toggleCart(event)">🛒 Cart <span class="cart-count" id="cartCount">0</span></a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="particles-canvas"></canvas>
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-wood-rings"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🦅 Handcrafted Since 2010</div>
+    <h1 class="hero-title">
+      Where Wood <em>Becomes</em><br>
+      <span>Art & Soul</span>
+    </h1>
+    <p class="hero-desc">
+      Each piece tells a story — carved from the finest timber, shaped by passion,
+      finished with the patience of generations.
+    </p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary" onclick="playClick()">🛍 Explore Collection</a>
+      <a href="#about" class="btn-secondary" onclick="playClick()">Our Craft Story</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-count="500">0</div>
+      <div class="hero-stat-label">Unique Pieces</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-count="1200">0</div>
+      <div class="hero-stat-label">Happy Customers</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-count="15">0</div>
+      <div class="hero-stat-label">Years of Craft</div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal-left">
+      <div class="section-tag">Our Story</div>
+      <h2 class="section-title">Crafted with<br><span>Heart & Heritage</span></h2>
+      <div class="section-line"></div>
+      <p class="about-desc">
+        MP Eagle Wood Craft was born from a deep love of natural wood and traditional artisanal techniques.
+        Every piece we create carries the warmth of the forest and the care of skilled hands —
+        designed to be passed down through generations.
+      </p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feature-icon">🌳</div>
+          <div class="about-feature-title">Natural Wood</div>
+          <div class="about-feature-text">Sustainably sourced premium timber from certified forests.</div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">🔨</div>
+          <div class="about-feature-title">Hand Crafted</div>
+          <div class="about-feature-text">Each piece shaped by skilled artisans with decades of experience.</div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">✨</div>
+          <div class="about-feature-title">Unique Finish</div>
+          <div class="about-feature-text">Natural oils and waxes that enhance the wood's beauty.</div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">🚚</div>
+          <div class="about-feature-title">Safe Delivery</div>
+          <div class="about-feature-text">Carefully packed and delivered to your doorstep.</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual reveal-right">
+      <div class="about-eagle-card">
+        <span class="about-eagle-icon">🦅</span>
+        <div class="about-eagle-name">MP Eagle</div>
+        <div class="about-eagle-sub">Wood Craft Studio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-header reveal">
+    <div class="section-tag">Our Collection</div>
+    <h2 class="section-title">Handcrafted <span>Masterpieces</span></h2>
+    <div class="section-line"></div>
+    <p class="section-desc">Each item is one-of-a-kind, made with patience and precision from the finest natural wood.</p>
+  </div>
+  <div class="products-filter reveal" id="productsFilter">
+    <button class="filter-btn active" onclick="filterProducts('all',this)">All Products</button>
+    <button class="filter-btn" onclick="filterProducts('decor',this)">Home Decor</button>
+    <button class="filter-btn" onclick="filterProducts('furniture',this)">Furniture</button>
+    <button class="filter-btn" onclick="filterProducts('kitchen',this)">Kitchen</button>
+    <button class="filter-btn" onclick="filterProducts('gifting',this)">Gifting</button>
+    <button class="filter-btn" onclick="filterProducts('art',this)">Wall Art</button>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-header reveal">
+    <div class="section-tag">Craft Gallery</div>
+    <h2 class="section-title" style="color:var(--white)">Beauty in Every <span style="color:var(--gold)">Grain</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item"><span class="gallery-emoji">🪵</span><div class="gallery-overlay"><div class="gallery-caption">Premium Teak Slab</div></div></div>
+    <div class="gallery-item"><span class="gallery-emoji">🔨</span><div class="gallery-overlay"><div class="gallery-caption">Hand Carving Process</div></div></div>
+    <div class="gallery-item"><span class="gallery-emoji">🪑</span><div class="gallery-overlay"><div class="gallery-caption">Artisan Chair</div></div></div>
+    <div class="gallery-item"><span class="gallery-emoji">🖼️</span><div class="gallery-overlay"><div class="gallery-caption">Wall Art Panel</div></div></div>
+    <div class="gallery-item"><span class="gallery-emoji">🌺</span><div class="gallery-overlay"><div class="gallery-caption">Floral Carving</div></div></div>
+    <div class="gallery-item"><span class="gallery-emoji">🏺</span><div class="gallery-overlay"><div class="gallery-caption">Turned Vase</div></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header reveal">
+    <div class="section-tag">Customer Love</div>
+    <h2 class="section-title">What People <span>Say</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="testimonials-grid" id="testimonialsGrid"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info reveal-left">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Let's Create<br><span>Something Beautiful</span></h2>
+      <div class="section-line"></div>
+      <p class="contact-desc">Have a custom order in mind? We'd love to bring your vision to life. Reach out and our team will respond within 24 hours.</p>
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div>
+          <div class="contact-item-title">Our Studio</div>
+          <div class="contact-item-text">Wood Craft Lane, Artisan Quarter<br>Tamil Nadu, India</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div>
+          <div class="contact-item-title">Call Us</div>
+          <div class="contact-item-text">+91 98765 43210</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">✉️</div>
+        <div>
+          <div class="contact-item-title">Email</div>
+          <div class="contact-item-text">hello@mpeaglewoodcraft.com</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal-right">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" class="modal-input" id="contactName" placeholder="John Doe" style="background:rgba(253,246,227,0.08);border-color:rgba(201,168,76,0.25);color:var(--white)"/>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" class="modal-input" id="contactEmail" placeholder="you@example.com" style="background:rgba(253,246,227,0.08);border-color:rgba(201,168,76,0.25);color:var(--white)"/>
+      </div>
+      <div class="form-group">
+        <label>Product Interest</label>
+        <select class="modal-input" id="contactProduct" style="background:rgba(253,246,227,0.08);border-color:rgba(201,168,76,0.25);color:var(--white)">
+          <option>Home Decor</option>
+          <option>Furniture</option>
+          <option>Kitchen Items</option>
+          <option>Gifting</option>
+          <option>Custom Order</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea class="modal-input" id="contactMsg" placeholder="Tell us about your dream piece..." style="background:rgba(253,246,227,0.08);border-color:rgba(201,168,76,0.25);color:var(--white);resize:vertical;min-height:120px;"></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%;" onclick="submitContact()">✉️ Send Message</button>
+      <div class="form-success" id="formSuccess">✅ Message sent! We'll be in touch soon.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">🦅 MP Eagle Wood Craft</div>
+      <p class="footer-desc">Handcrafted wooden masterpieces born from tradition, passion, and the beauty of natural wood. Every piece is a story waiting to be told.</p>
+      <div class="footer-socials">
+        <a class="social-btn" href="#">📘</a>
+        <a class="social-btn" href="#">📸</a>
+        <a class="social-btn" href="#">🐦</a>
+        <a class="social-btn" href="#">▶️</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Categories</div>
+      <ul class="footer-links">
+        <li><a href="#">Home Decor</a></li>
+        <li><a href="#">Furniture</a></li>
+        <li><a href="#">Kitchen</a></li>
+        <li><a href="#">Gifting</a></li>
+        <li><a href="#">Wall Art</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Policies</div>
+      <ul class="footer-links">
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Return Policy</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Custom Orders</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copyright">© 2026 MP Eagle Wood Craft. All Rights Reserved.</div>
+    <div class="footer-copyright">Handcrafted with 🦅 & ❤️ in India</div>
+  </div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart(event)"></div>
+<div id="cart-sidebar">
+  <div class="cart-header">
+    <h3>🛒 Your Cart</h3>
+    <button class="cart-close" onclick="toggleCart(event)">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">🛒</div>
+      <p>Your cart is empty.<br>Add some beautiful pieces!</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-price" id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div id="admin-overlay">
+  <div class="admin-login-box">
+    <h2>🦅 Admin Panel</h2>
+    <p>Login to manage your store</p>
+    <input type="text" class="admin-input" id="adminUser" placeholder="Username" value=""/>
+    <input type="password" class="admin-input" id="adminPass" placeholder="Password" value=""/>
+    <button class="admin-login-btn" onclick="adminLogin()">Login to Admin</button>
+    <div class="admin-login-err" id="adminErr">❌ Invalid credentials. Try: admin / eagle2026</div>
+    <button style="background:none;border:none;color:var(--text-light);margin-top:1rem;cursor:pointer;font-size:0.85rem;display:block;margin:1rem auto 0;" onclick="closeAdminLogin()">✕ Cancel</button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin-panel">
+  <div class="admin-topbar">
+    <div class="admin-topbar-left">
+      <span style="font-size:1.5rem;">🦅</span>
+      <h2>MP Eagle Admin</h2>
+    </div>
+    <div class="admin-topbar-right">
+      <span style="color:var(--gold);font-family:'Josefin Sans',sans-serif;font-size:0.75rem;letter-spacing:1px;">Welcome, Admin</span>
+      <button class="admin-logout-btn" onclick="adminLogout()">Logout</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <div class="admin-sidebar">
+      <div class="admin-nav-item active" onclick="switchAdminTab('dashboard',this)"><span class="admin-nav-item-icon">📊</span><span>Dashboard</span></div>
+      <div class="admin-nav-item" onclick="switchAdminTab('products',this)"><span class="admin-nav-item-icon">🪵</span><span>Products</span></div>
+      <div class="admin-nav-item" onclick="switchAdminTab('orders',this)"><span class="admin-nav-item-icon">📦</span><span>Orders</span></div>
+      <div class="admin-nav-item" onclick="switchAdminTab('testimonials',this)"><span class="admin-nav-item-icon">⭐</span><span>Reviews</span></div>
+      <div class="admin-nav-item" onclick="switchAdminTab('settings',this)"><span class="admin-nav-item-icon">⚙️</span><span>Settings</span></div>
+    </div>
+    <div class="admin-main">
+      <!-- Dashboard Tab -->
+      <div class="admin-tab active" id="tab-dashboard">
+        <div class="admin-section-title">📊 Dashboard Overview</div>
+        <div class="admin-stats-grid">
+          <div class="admin-stat-card"><div class="admin-stat-icon">🪵</div><div class="admin-stat-val" id="stat-products">0</div><div class="admin-stat-label">Products</div></div>
+          <div class="admin-stat-card"><div class="admin-stat-icon">🛒</div><div class="admin-stat-val" id="stat-orders">24</div><div class="admin-stat-label">Total Orders</div></div>
+          <div class="admin-stat-card"><div class="admin-stat-icon">💰</div><div class="admin-stat-val">₹48,250</div><div class="admin-stat-label">Revenue</div></div>
+          <div class="admin-stat-card"><div class="admin-stat-icon">⭐</div><div class="admin-stat-val" id="stat-reviews">0</div><div class="admin-stat-label">Reviews</div></div>
+          <div class="admin-stat-card"><div class="admin-stat-icon">👥</div><div class="admin-stat-val">1,243</div><div class="admin-stat-label">Visitors</div></div>
+          <div class="admin-stat-card"><div class="admin-stat-icon">❤️</div><div class="admin-stat-val">98%</div><div class="admin-stat-label">Satisfaction</div></div>
+        </div>
+        <div style="background:var(--white);border-radius:6px;padding:1.5rem;box-shadow:0 2px 10px rgba(0,0,0,0.08);">
+          <div style="font-family:'Josefin Sans',sans-serif;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-mid);margin-bottom:1rem;">Recent Activity</div>
+          <div id="recentActivity"></div>
+        </div>
+      </div>
+      <!-- Products Tab -->
+      <div class="admin-tab" id="tab-products">
+        <div class="admin-products-header">
+          <div class="admin-section-title">🪵 Manage Products</div>
+          <button class="admin-add-btn" onclick="openProductModal()">➕ Add Product</button>
+        </div>
+        <div style="overflow-x:auto">
+          <table class="admin-table">
+            <thead><tr><th>Emoji</th><th>Name</th><th>Category</th><th>Price</th><th>Badge</th><th>Actions</th></tr></thead>
+            <tbody id="adminProductsTable"></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Orders Tab -->
+      <div class="admin-tab" id="tab-orders">
+        <div class="admin-section-title">📦 Orders</div>
+        <div style="overflow-x:auto">
+          <table class="admin-table">
+            <thead><tr><th>Order #</th><th>Product</th><th>Qty</th><th>Total</th><th>Status</th></tr></thead>
+            <tbody id="adminOrdersTable"></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Testimonials Tab -->
+      <div class="admin-tab" id="tab-testimonials">
+        <div class="admin-products-header">
+          <div class="admin-section-title">⭐ Manage Reviews</div>
+          <button class="admin-add-btn" onclick="openReviewModal()">➕ Add Review</button>
+        </div>
+        <table class="admin-table">
+          <thead><tr><th>Name</th><th>Role</th><th>Review</th><th>Stars</th><th>Actions</th></tr></thead>
+          <tbody id="adminReviewsTable"></tbody>
+        </table>
+      </div>
+      <!-- Settings Tab -->
+      <div class="admin-tab" id="tab-settings">
+        <div class="admin-section-title">⚙️ Site Settings</div>
+        <div style="background:var(--white);border-radius:6px;padding:2rem;box-shadow:0 2px 10px rgba(0,0,0,0.08);max-width:500px;">
+          <div class="modal-form-group">
+            <label>Business Name</label>
+            <input type="text" class="modal-input" value="MP Eagle Wood Craft"/>
+          </div>
+          <div class="modal-form-group">
+            <label>Phone Number</label>
+            <input type="text" class="modal-input" value="+91 98765 43210"/>
+          </div>
+          <div class="modal-form-group">
+            <label>Email</label>
+            <input type="email" class="modal-input" value="hello@mpeaglewoodcraft.com"/>
+          </div>
+          <div class="modal-form-group">
+            <label>Address</label>
+            <textarea class="modal-input" style="resize:vertical;min-height:80px;">Wood Craft Lane, Artisan Quarter, Tamil Nadu, India</textarea>
+          </div>
+          <button class="modal-save-btn" onclick="showToast('Settings saved! ✓','success')">Save Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal-box">
+    <h3 id="modalTitle">Add New Product</h3>
+    <input type="hidden" id="editProductId"/>
+    <div class="modal-form-group"><label>Product Emoji</label><input type="text" class="modal-input" id="pEmoji" placeholder="e.g. 🪑"/></div>
+    <div class="modal-form-group"><label>Product Name</label><input type="text" class="modal-input" id="pName" placeholder="e.g. Carved Oak Chair"/></div>
+    <div class="modal-form-group"><label>Category</label>
+      <select class="modal-input" id="pCategory">
+        <option value="decor">Home Decor</option>
+        <option value="furniture">Furniture</option>
+        <option value="kitchen">Kitchen</option>
+        <option value="gifting">Gifting</option>
+        <option value="art">Wall Art</option>
+      </select>
+    </div>
+    <div class="modal-form-group"><label>Description</label><textarea class="modal-input" id="pDesc" placeholder="Describe this product..." style="min-height:80px;resize:vertical"></textarea></div>
+    <div class="modal-form-group"><label>Price (₹)</label><input type="number" class="modal-input" id="pPrice" placeholder="e.g. 2499"/></div>
+    <div class="modal-form-group"><label>Old Price (₹) — optional</label><input type="number" class="modal-input" id="pOldPrice" placeholder="e.g. 3299"/></div>
+    <div class="modal-form-group"><label>Badge</label>
+      <select class="modal-input" id="pBadge">
+        <option value="">None</option>
+        <option value="new">New</option>
+        <option value="sale">Sale</option>
+        <option value="popular">Popular</option>
+      </select>
+    </div>
+    <div class="modal-form-group"><label>Stars (1-5)</label><input type="number" class="modal-input" id="pStars" min="1" max="5" value="5"/></div>
+    <div class="modal-btns">
+      <button class="modal-cancel-btn" onclick="closeProductModal()">Cancel</button>
+      <button class="modal-save-btn" onclick="saveProduct()">Save Product</button>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEW MODAL -->
+<div class="modal-overlay" id="reviewModal">
+  <div class="modal-box">
+    <h3 id="reviewModalTitle">Add Review</h3>
+    <input type="hidden" id="editReviewId"/>
+    <div class="modal-form-group"><label>Customer Avatar (emoji)</label><input type="text" class="modal-input" id="rAvatar" placeholder="e.g. 😊"/></div>
+    <div class="modal-form-group"><label>Customer Name</label><input type="text" class="modal-input" id="rName" placeholder="e.g. Priya K."/></div>
+    <div class="modal-form-group"><label>Role / Location</label><input type="text" class="modal-input" id="rRole" placeholder="e.g. Interior Designer, Chennai"/></div>
+    <div class="modal-form-group"><label>Review Text</label><textarea class="modal-input" id="rText" placeholder="What did they say?" style="min-height:100px;resize:vertical"></textarea></div>
+    <div class="modal-form-group"><label>Stars (1-5)</label><input type="number" class="modal-input" id="rStars" min="1" max="5" value="5"/></div>
+    <div class="modal-btns">
+      <button class="modal-cancel-btn" onclick="closeReviewModal()">Cancel</button>
+      <button class="modal-save-btn" onclick="saveReview()">Save Review</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================================================================
+   MP EAGLE WOOD CRAFT — FULL JAVASCRIPT ENGINE
+   ================================================================ */
+
+// ── DATA ──────────────────────────────────────────────────────────
+let products = [
+  {id:1,emoji:'🪑',name:'Royal Teak Armchair',category:'furniture',desc:'Hand-carved solid teak with natural oil finish. A throne of comfort.',price:5499,oldPrice:6999,badge:'popular',stars:5,reviews:42},
+  {id:2,emoji:'🏺',name:'Rosewood Vase Pair',category:'decor',desc:'Lathe-turned rosewood with hand-polished grain detail.',price:1299,oldPrice:null,badge:'new',stars:5,reviews:18},
+  {id:3,emoji:'🥣',name:'Neem Wood Salad Bowl',category:'kitchen',desc:'Antibacterial neem wood, food-safe finish, perfect for daily use.',price:899,oldPrice:1199,badge:'sale',stars:4,reviews:36},
+  {id:4,emoji:'🖼️',name:'Carved Elephant Panel',category:'art',desc:'Intricate elephant motif wall art carved from sheesham wood.',price:3299,oldPrice:null,badge:'popular',stars:5,reviews:27},
+  {id:5,emoji:'🎁',name:'Artisan Gift Hamper',category:'gifting',desc:'Curated set: wooden coasters, butter spreader & keepsake box.',price:1999,oldPrice:2499,badge:'sale',stars:5,reviews:53},
+  {id:6,emoji:'🕯️',name:'Driftwood Candle Stand',category:'decor',desc:'Naturally shaped driftwood with hand-drilled candle holders.',price:799,oldPrice:null,badge:'new',stars:4,reviews:14},
+  {id:7,emoji:'🪞',name:'Mango Wood Mirror',category:'decor',desc:'Rustic mango wood frame with brass inlay detailing.',price:2799,oldPrice:3499,badge:'',stars:5,reviews:31},
+  {id:8,emoji:'🍽️',name:'Serving Tray Set',category:'kitchen',desc:'Acacia wood serving trays in 3 nesting sizes.',price:1499,oldPrice:null,badge:'new',stars:4,reviews:22}
+];
+
+let testimonials = [
+  {id:1,avatar:'🙋‍♀️',name:'Priya Ramesh',role:'Interior Designer, Chennai',text:'I ordered a custom dining table and was blown away by the quality. The wood grain is stunning — exactly what I imagined.',stars:5},
+  {id:2,avatar:'👨‍💼',name:'Arjun Menon',role:'Home Owner, Bangalore',text:'The carved wall panels transformed our living room. Every guest asks where they are from. Absolutely gorgeous craftsmanship.',stars:5},
+  {id:3,avatar:'🙋‍♂️',name:'Suresh Kumar',role:'Gift Buyer, Mumbai',text:'Got the artisan hamper for a wedding gift — the recipients were speechless. Beautiful packaging, even more beautiful products.',stars:5},
+  {id:4,avatar:'👩‍🎨',name:'Anitha Pillai',role:'Artist, Kochi',text:'As an artist I have high standards. MP Eagle exceeded all of them. The neem wood bowl is a sculpture in itself.',stars:5},
+  {id:5,avatar:'🧑‍💻',name:'Vivek Naidu',role:'Tech Executive, Hyderabad',text:'Ordered the teak armchair online. Delivery was fast and the chair is even more beautiful in person. Worth every rupee.',stars:5},
+  {id:6,avatar:'👩‍🍳',name:'Meena Iyer',role:'Chef, Coimbatore',text:'The kitchen collection is divine. Natural, safe, and so beautiful. I now display them instead of hiding them in cabinets!',stars:5}
+];
+
+let cart = [];
+let idCounter = 100;
+let soundEnabled = true;
+
+// ── AUDIO ENGINE ─────────────────────────────────────────────────
+const AudioCtx = window.AudioContext || window.webkitAudioContext;
+let ctx;
+function getCtx(){if(!ctx) ctx = new AudioCtx(); return ctx;}
+
+function playClick(){
+  if(!soundEnabled) return;
+  try{
+    const c = getCtx();
+    const o = c.createOscillator();
+    const g = c.createGain();
+    o.connect(g); g.connect(c.destination);
+    o.frequency.setValueAtTime(880,c.currentTime);
+    o.frequency.exponentialRampToValueAtTime(440,c.currentTime+0.1);
+    g.gain.setValueAtTime(0.15,c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+0.15);
+    o.start(c.currentTime); o.stop(c.currentTime+0.15);
+  }catch(e){}
+}
+
+function playAddCart(){
+  if(!soundEnabled) return;
+  try{
+    const c = getCtx();
+    [523,659,784].forEach((f,i)=>{
+      const o = c.createOscillator();
+      const g = c.createGain();
+      o.connect(g); g.connect(c.destination);
+      o.frequency.value = f;
+      o.type = 'sine';
+      const t = c.currentTime + i*0.1;
+      g.gain.setValueAtTime(0.12,t);
+      g.gain.exponentialRampToValueAtTime(0.001,t+0.25);
+      o.start(t); o.stop(t+0.25);
+    });
+  }catch(e){}
+}
+
+function playHover(){
+  if(!soundEnabled) return;
+  try{
+    const c = getCtx();
+    const o = c.createOscillator();
+    const g = c.createGain();
+    o.connect(g); g.connect(c.destination);
+    o.frequency.value = 1200;
+    o.type = 'sine';
+    g.gain.setValueAtTime(0.04,c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+0.08);
+    o.start(c.currentTime); o.stop(c.currentTime+0.08);
+  }catch(e){}
+}
+
+// Scroll chime
+let lastScrollChime = 0;
+function playScrollChime(){
+  if(!soundEnabled) return;
+  const now = Date.now();
+  if(now - lastScrollChime < 300) return;
+  lastScrollChime = now;
+  try{
+    const c = getCtx();
+    const freqs = [523,659,784,1047];
+    const f = freqs[Math.floor(Math.random()*freqs.length)];
+    const o = c.createOscillator();
+    const g = c.createGain();
+    o.connect(g); g.connect(c.destination);
+    o.frequency.value = f;
+    o.type = 'triangle';
+    g.gain.setValueAtTime(0.06,c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+0.4);
+    o.start(c.currentTime); o.stop(c.currentTime+0.4);
+  }catch(e){}
+}
+
+document.getElementById('sound-toggle').addEventListener('click',function(){
+  soundEnabled = !soundEnabled;
+  this.textContent = soundEnabled ? '🔊' : '🔇';
+  showToast(soundEnabled ? '🔊 Sound On' : '🔇 Sound Off');
+  playClick();
+});
+
+// ── CURSOR ────────────────────────────────────────────────────────
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX; my=e.clientY;
+  cursor.style.transform=`translate(${mx-6}px,${my-6}px)`;
+});
+function animateCursor(){
+  rx+=(mx-rx)*0.15; ry+=(my-ry)*0.15;
+  cursorRing.style.transform=`translate(${rx-18}px,${ry-18}px)`;
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+document.querySelectorAll('a,button,.product-card,.gallery-item,.filter-btn').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursorRing.classList.add('hover');playHover();});
+  el.addEventListener('mouseleave',()=>cursorRing.classList.remove('hover'));
+});
+
+// ── SCROLL PROGRESS ───────────────────────────────────────────────
+window.addEventListener('scroll',()=>{
+  const el = document.documentElement;
+  const pct = (el.scrollTop/(el.scrollHeight-el.clientHeight))*100;
+  document.getElementById('scroll-progress').style.width = pct+'%';
+  // navbar
+  const nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled',window.scrollY>80);
+  // scroll chime
+  playScrollChime();
+  // reveals
+  revealElements();
+});
+
+// ── REVEAL ANIMATIONS ─────────────────────────────────────────────
+function revealElements(){
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>{
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight-80) el.classList.add('visible');
+  });
+}
+revealElements();
+
+// ── PRELOADER ─────────────────────────────────────────────────────
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('preloader').classList.add('hide');
+    countUpStats();
+    buildMarquee();
+  },2800);
+});
+
+// ── COUNTER ANIMATION ─────────────────────────────────────────────
+function countUpStats(){
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    const target = +el.dataset.count;
+    let current = 0;
+    const step = Math.ceil(target/60);
+    const timer = setInterval(()=>{
+      current = Math.min(current+step,target);
+      el.textContent = current + (target>=100?'+':'');
+      if(current>=target) clearInterval(timer);
+    },30);
+  });
+}
+
+// ── MARQUEE ───────────────────────────────────────────────────────
+function buildMarquee(){
+  const items = ['🦅 MP Eagle Wood Craft','🪵 Natural Teak & Rosewood','🔨 Hand Carved','🌿 Eco Friendly','✨ Premium Finish','🎁 Custom Orders Welcome','🚚 Pan India Shipping','🏆 Award Winning Craftsmanship'];
+  const track = document.getElementById('marqueeTrack');
+  const doubled = [...items,...items];
+  track.innerHTML = doubled.map(t=>`<div class="marquee-item"><span>⟡</span>${t}</div>`).join('');
+}
+
+// ── PRODUCTS ──────────────────────────────────────────────────────
+function renderProducts(filter='all'){
+  const grid = document.getElementById('productsGrid');
+  const filtered = filter==='all' ? products : products.filter(p=>p.category===filter);
+  grid.innerHTML = '';
+  filtered.forEach((p,i)=>{
+    const stars = '★'.repeat(p.stars)+'☆'.repeat(5-p.stars);
+    const badgeHtml = p.badge ? `<span class="product-badge badge-${p.badge}">${p.badge.toUpperCase()}</span>` : '';
+    const oldPriceHtml = p.oldPrice ? `<span class="product-price-old">₹${p.oldPrice}</span>` : '';
+    const card = document.createElement('div');
+    card.className = 'product-card reveal';
+    card.style.transitionDelay = `${i*0.07}s`;
+    card.innerHTML = `
+      <div class="product-img">
+        <span class="product-emoji">${p.emoji}</span>
+        ${badgeHtml}
+        <button class="product-wishlist" onclick="toggleWishlist(this)" title="Wishlist">🤍</button>
+      </div>
+      <div class="product-body">
+        <div class="product-category">${categoryLabel(p.category)}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-rating">
+          <span class="stars">${stars}</span>
+          <span class="rating-count">(${p.reviews||0})</span>
+        </div>
+        <div class="product-footer">
+          <div><span class="product-price">₹${p.price.toLocaleString()}</span>${oldPriceHtml}</div>
+          <button class="add-cart-btn" onclick="addToCart(${p.id},this)">Add to Cart</button>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+  setTimeout(revealElements,100);
+}
+
+function categoryLabel(c){
+  const m={decor:'Home Decor',furniture:'Furniture',kitchen:'Kitchen',gifting:'Gifting',art:'Wall Art'};
+  return m[c]||c;
+}
+
+function filterProducts(filter,btn){
+  playClick();
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const grid = document.getElementById('productsGrid');
+  grid.style.opacity='0';
+  setTimeout(()=>{renderProducts(filter);grid.style.opacity='1';grid.style.transition='opacity 0.4s';},200);
+}
+
+function toggleWishlist(btn){
+  playClick();
+  btn.classList.toggle('active');
+  btn.textContent = btn.classList.contains('active') ? '❤️' : '🤍';
+}
+
+// ── CART ──────────────────────────────────────────────────────────
+function addToCart(id,btn){
+  playAddCart();
+  const product = products.find(p=>p.id===id);
+  if(!product) return;
+  const existing = cart.find(c=>c.id===id);
+  if(existing) existing.qty++;
+  else cart.push({...product,qty:1});
+  btn.classList.add('added');
+  setTimeout(()=>btn.classList.remove('added'),1500);
+  updateCartUI();
+  showToast(`🛒 "${product.name}" added to cart!`,'success');
+}
+
+function updateCartUI(){
+  const count = cart.reduce((a,c)=>a+c.qty,0);
+  document.getElementById('cartCount').textContent = count;
+  const itemsEl = document.getElementById('cartItems');
+  const footerEl = document.getElementById('cartFooter');
+  if(cart.length===0){
+    itemsEl.innerHTML='<div class="cart-empty"><div class="cart-empty-icon">🛒</div><p>Your cart is empty.<br>Add some beautiful pieces!</p></div>';
+    footerEl.style.display='none';
+    return;
+  }
+  footerEl.style.display='block';
+  itemsEl.innerHTML = cart.map(item=>`
+    <div class="cart-item">
+      <div class="cart-item-img">${item.emoji}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">₹${item.price.toLocaleString()}</div>
+        <div class="cart-item-controls">
+          <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+        </div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart(${item.id})">🗑</button>
+    </div>`).join('');
+  const total = cart.reduce((a,c)=>a+c.price*c.qty,0);
+  document.getElementById('cartTotal').textContent = '₹'+total.toLocaleString();
+}
+
+function changeQty(id,delta){
+  playClick();
+  const item = cart.find(c=>c.id===id);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty<=0) cart = cart.filter(c=>c.id!==id);
+  updateCartUI();
+}
+
+function removeFromCart(id){
+  playClick();
+  cart = cart.filter(c=>c.id!==id);
+  updateCartUI();
+}
+
+function toggleCart(e){
+  e && e.preventDefault();
+  playClick();
+  const sidebar = document.getElementById('cart-sidebar');
+  const overlay = document.getElementById('cartOverlay');
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('show');
+}
+
+function checkout(){
+  playClick();
+  showToast('🎉 Thank you! Our team will contact you shortly.','success');
+  cart = [];
+  updateCartUI();
+  toggleCart();
+}
+
+// ── TESTIMONIALS ──────────────────────────────────────────────────
+function renderTestimonials(){
+  const grid = document.getElementById('testimonialsGrid');
+  const adminGrid = document.getElementById('adminReviewsTable');
+  grid.innerHTML = testimonials.map(t=>`
+    <div class="testimonial-card reveal">
+      <p class="testimonial-text">${t.text}</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">${t.avatar}</div>
+        <div><div class="testimonial-name">${t.name}</div><div class="testimonial-role">${t.role}</div></div>
+        <div style="margin-left:auto;color:var(--gold)">★${t.stars}</div>
+      </div>
+    </div>`).join('');
+  if(adminGrid){
+    adminGrid.innerHTML = testimonials.map(t=>`
+      <tr>
+        <td>${t.avatar} ${t.name}</td>
+        <td>${t.role}</td>
+        <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${t.text}</td>
+        <td>${'★'.repeat(t.stars)}</td>
+        <td>
+          <button class="admin-action-btn btn-edit" onclick="editReview(${t.id})">Edit</button>
+          <button class="admin-action-btn btn-delete" onclick="deleteReview(${t.id})">Delete</button>
+        </td>
+      </tr>`).join('');
+  }
+  document.getElementById('stat-reviews').textContent = testimonials.length;
+  setTimeout(revealElements,100);
+}
+
+// ── CONTACT FORM ──────────────────────────────────────────────────
+function submitContact(){
+  playClick();
+  const name = document.getElementById('contactName').value.trim();
+  const email = document.getElementById('contactEmail').value.trim();
+  const msg = document.getElementById('contactMsg').value.trim();
+  if(!name||!email||!msg){showToast('⚠️ Please fill in all fields','error');return;}
+  document.getElementById('formSuccess').classList.add('show');
+  document.getElementById('contactName').value='';
+  document.getElementById('contactEmail').value='';
+  document.getElementById('contactMsg').value='';
+  addActivity(`📩 New message from ${name}`);
+  showToast('✉️ Message sent successfully!','success');
+}
+
+// ── ADMIN ──────────────────────────────────────────────────────────
+function openAdminLogin(){document.getElementById('admin-overlay').classList.add('show');}
+function closeAdminLogin(){document.getElementById('admin-overlay').classList.remove('show');}
+
+document.getElementById('admin-trigger').addEventListener('click',()=>{
+  playClick();openAdminLogin();
+});
+
+function adminLogin(){
+  const user = document.getElementById('adminUser').value;
+  const pass = document.getElementById('adminPass').value;
+  if(user==='admin'&&pass==='eagle2026'){
+    closeAdminLogin();
+    document.getElementById('admin-panel').classList.add('show');
+    renderAdminProducts();
+    renderTestimonials();
+    updateDashboardStats();
+    showToast('👋 Welcome back, Admin!','success');
+  } else {
+    document.getElementById('adminErr').style.display='block';
+  }
+}
+
+function adminLogout(){
+  playClick();
+  document.getElementById('admin-panel').classList.remove('show');
+  showToast('👋 Logged out successfully');
+}
+
+function switchAdminTab(tab,el){
+  playClick();
+  document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.admin-nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  el.classList.add('active');
+  if(tab==='products') renderAdminProducts();
+  if(tab==='testimonials') renderTestimonials();
+}
+
+function updateDashboardStats(){
+  document.getElementById('stat-products').textContent = products.length;
+  document.getElementById('stat-reviews').textContent = testimonials.length;
+}
+
+function renderAdminProducts(){
+  const tbody = document.getElementById('adminProductsTable');
+  tbody.innerHTML = products.map(p=>`
+    <tr>
+      <td style="font-size:1.5rem">${p.emoji}</td>
+      <td><strong>${p.name}</strong></td>
+      <td>${categoryLabel(p.category)}</td>
+      <td>₹${p.price.toLocaleString()}</td>
+      <td>${p.badge?`<span class="product-badge badge-${p.badge}" style="position:static;display:inline-block">${p.badge}</span>`:'-'}</td>
+      <td>
+        <button class="admin-action-btn btn-edit" onclick="editProduct(${p.id})">Edit</button>
+        <button class="admin-action-btn btn-delete" onclick="deleteProduct(${p.id})">Delete</button>
+      </td>
+    </tr>`).join('');
+  updateDashboardStats();
+  // Orders demo
+  const orders = document.getElementById('adminOrdersTable');
+  if(orders&&!orders.children.length){
+    const demo=[
+      {id:'#1001',product:'Royal Teak Armchair',qty:1,total:'₹5,499',status:'Delivered'},
+      {id:'#1002',product:'Neem Wood Bowl',qty:2,total:'₹1,798',status:'Processing'},
+      {id:'#1003',product:'Gift Hamper',qty:3,total:'₹5,997',status:'Shipped'},
+      {id:'#1004',product:'Elephant Panel',qty:1,total:'₹3,299',status:'Pending'},
+    ];
+    orders.innerHTML = demo.map(o=>`
+      <tr>
+        <td><strong>${o.id}</strong></td>
+        <td>${o.product}</td>
+        <td>${o.qty}</td>
+        <td>${o.total}</td>
+        <td><span style="padding:0.2rem 0.6rem;border-radius:2px;font-size:0.75rem;font-family:'Josefin Sans',sans-serif;background:${o.status==='Delivered'?'#E8F5E9':o.status==='Shipped'?'#E3F2FD':o.status==='Processing'?'#FFF8E1':'#FCE4EC'};color:${o.status==='Delivered'?'#2E7D32':o.status==='Shipped'?'#1565C0':o.status==='Processing'?'#F57F17':'#C62828'}">${o.status}</span></td>
+      </tr>`).join('');
+  }
+}
+
+// Product CRUD
+function openProductModal(id=null){
+  playClick();
+  const modal = document.getElementById('productModal');
+  document.getElementById('modalTitle').textContent = id ? 'Edit Product' : 'Add New Product';
+  document.getElementById('editProductId').value = id||'';
+  if(id){
+    const p = products.find(x=>x.id===id);
+    document.getElementById('pEmoji').value=p.emoji;
+    document.getElementById('pName').value=p.name;
+    document.getElementById('pCategory').value=p.category;
+    document.getElementById('pDesc').value=p.desc;
+    document.getElementById('pPrice').value=p.price;
+    document.getElementById('pOldPrice').value=p.oldPrice||'';
+    document.getElementById('pBadge').value=p.badge||'';
+    document.getElementById('pStars').value=p.stars;
+  } else {
+    ['pEmoji','pName','pDesc','pPrice','pOldPrice'].forEach(f=>document.getElementById(f).value='');
+    document.getElementById('pBadge').value='';
+    document.getElementById('pStars').value=5;
+  }
+  modal.classList.add('show');
+}
+
+function closeProductModal(){document.getElementById('productModal').classList.remove('show');}
+
+function saveProduct(){
+  playClick();
+  const editId = document.getElementById('editProductId').value;
+  const data = {
+    emoji: document.getElementById('pEmoji').value||'🪵',
+    name: document.getElementById('pName').value.trim(),
+    category: document.getElementById('pCategory').value,
+    desc: document.getElementById('pDesc').value.trim(),
+    price: +document.getElementById('pPrice').value,
+    oldPrice: +document.getElementById('pOldPrice').value||null,
+    badge: document.getElementById('pBadge').value,
+    stars: +document.getElementById('pStars').value||5,
+    reviews: 0
+  };
+  if(!data.name||!data.price){showToast('⚠️ Name and price are required','error');return;}
+  if(editId){
+    const idx = products.findIndex(p=>p.id===+editId);
+    products[idx] = {...products[idx],...data};
+    showToast('✅ Product updated!','success');
+    addActivity(`✏️ Updated product: ${data.name}`);
+  } else {
+    data.id = ++idCounter;
+    products.push(data);
+    showToast('✅ Product added!','success');
+    addActivity(`➕ Added product: ${data.name}`);
+  }
+  closeProductModal();
+  renderAdminProducts();
+  renderProducts('all');
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.filter-btn').classList.add('active');
+}
+
+function editProduct(id){openProductModal(id);}
+function deleteProduct(id){
+  playClick();
+  if(!confirm('Delete this product?')) return;
+  products = products.filter(p=>p.id!==id);
+  renderAdminProducts();
+  renderProducts('all');
+  showToast('🗑 Product deleted','error');
+}
+
+// Review CRUD
+function openReviewModal(id=null){
+  playClick();
+  document.getElementById('reviewModalTitle').textContent = id ? 'Edit Review' : 'Add Review';
+  document.getElementById('editReviewId').value = id||'';
+  if(id){
+    const r = testimonials.find(x=>x.id===id);
+    document.getElementById('rAvatar').value=r.avatar;
+    document.getElementById('rName').value=r.name;
+    document.getElementById('rRole').value=r.role;
+    document.getElementById('rText').value=r.text;
+    document.getElementById('rStars').value=r.stars;
+  } else {
+    ['rAvatar','rName','rRole','rText'].forEach(f=>document.getElementById(f).value='');
+    document.getElementById('rStars').value=5;
+  }
+  document.getElementById('reviewModal').classList.add('show');
+}
+
+function closeReviewModal(){document.getElementById('reviewModal').classList.remove('show');}
+
+function saveReview(){
+  playClick();
+  const editId = document.getElementById('editReviewId').value;
+  const data = {
+    avatar: document.getElementById('rAvatar').value||'😊',
+    name: document.getElementById('rName').value.trim(),
+    role: document.getElementById('rRole').value.trim(),
+    text: document.getElementById('rText').value.trim(),
+    stars: +document.getElementById('rStars').value||5
+  };
+  if(!data.name||!data.text){showToast('⚠️ Name and review text required','error');return;}
+  if(editId){
+    const idx = testimonials.findIndex(r=>r.id===+editId);
+    testimonials[idx]={...testimonials[idx],...data};
+    showToast('✅ Review updated!','success');
+  } else {
+    data.id = ++idCounter;
+    testimonials.push(data);
+    showToast('✅ Review added!','success');
+  }
+  closeReviewModal();
+  renderTestimonials();
+}
+
+function editReview(id){openReviewModal(id);}
+function deleteReview(id){
+  playClick();
+  if(!confirm('Delete this review?')) return;
+  testimonials = testimonials.filter(r=>r.id!==id);
+  renderTestimonials();
+  showToast('🗑 Review deleted','error');
+}
+
+// ── TOAST ──────────────────────────────────────────────────────────
+function showToast(msg,type=''){
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = 'toast '+type;
+  toast.textContent = msg;
+  container.appendChild(toast);
+  setTimeout(()=>{toast.classList.add('remove');setTimeout(()=>toast.remove(),300);},2800);
+}
+
+// ── ACTIVITY LOG ──────────────────────────────────────────────────
+const activities = [];
+function addActivity(msg){
+  activities.unshift({msg,time:new Date().toLocaleTimeString()});
+  const el = document.getElementById('recentActivity');
+  if(el) el.innerHTML = activities.slice(0,8).map(a=>`
+    <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #F0F0F0;font-size:0.88rem;">
+      <span>${a.msg}</span>
+      <span style="color:var(--text-light);font-size:0.8rem;">${a.time}</span>
+    </div>`).join('');
+}
+
+// ── PARTICLES ─────────────────────────────────────────────────────
+const canvas = document.getElementById('particles-canvas');
+const pctx = canvas.getContext('2d');
+let particles = [];
+
+function resizeCanvas(){
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+
+function initParticles(){
+  resizeCanvas();
+  particles = Array.from({length:50},()=>({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*2+0.5,
+    dx: (Math.random()-0.5)*0.4,
+    dy: (Math.random()-0.5)*0.4,
+    opacity: Math.random()*0.5+0.1
+  }));
+}
+
+function drawParticles(){
+  pctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    pctx.beginPath();
+    pctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    pctx.fillStyle=`rgba(201,168,76,${p.opacity})`;
+    pctx.fill();
+    p.x+=p.dx; p.y+=p.dy;
+    if(p.x<0||p.x>canvas.width) p.dx*=-1;
+    if(p.y<0||p.y>canvas.height) p.dy*=-1;
+  });
+  requestAnimationFrame(drawParticles);
+}
+
+initParticles();
+drawParticles();
+window.addEventListener('resize',initParticles);
+
+// ── MENU ──────────────────────────────────────────────────────────
+function toggleMenu(){
+  playClick();
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+
+// ── TOAST CONTAINER ───────────────────────────────────────────────
+document.body.insertAdjacentHTML('beforeend','<div id="toast-container" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:99997;display:flex;flex-direction:column;align-items:center;gap:0.5rem;pointer-events:none;"></div>');
+
+// ── INIT ──────────────────────────────────────────────────────────
+renderProducts('all');
+renderTestimonials();
+buildMarquee();
+
+// Initial activity log
+['🌐 Website launched','📦 8 products ready','⭐ 6 reviews live','🦅 MP Eagle is open!'].forEach(m=>addActivity(m));
+</script>
+</body>
+</html>
